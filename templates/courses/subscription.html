@@ -1,0 +1,26 @@
+{% extends "config/base.html" %}
+{% load bootstrap4 %}
+
+{% block context %}
+  <section class="section">
+    <div class="page__title container">
+      <h1>Faça a sua inscrição</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="subscription container">
+      <div class="subscription__img">
+
+      </div>
+      <div class="subscription__data">
+        <form method="post">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+
+          <button type="submit" class="button button-send">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock context %}

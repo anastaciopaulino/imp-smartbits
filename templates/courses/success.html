@@ -1,0 +1,13 @@
+{% extends "config/base.html" %}
+{% load static %}
+
+{% block context %}
+  <section class="section">
+    <div class="container success">
+      <div>
+        <img src="{% static 'images/email.gif' %}" alt="" srcset="">
+        <h3 class="success__message">Por favor verifique o seu correio eletronico (e-mail).</h3>  
+      </div>
+    </div>
+  </section>
+{% endblock context %}

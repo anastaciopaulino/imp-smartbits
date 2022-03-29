@@ -1,0 +1,754 @@
+/****
+*** Anastácio Cassiano Paulino
+*** @anastaciopaulino
+*** Hi!! Welcome in my CSS file.
+*****/
+
+/*************** GOOGLE FONTS ***************/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*************** VARIABLES CSS ***************/
+:root {
+  --header-height: 3.75em;
+
+  /********* Colors *********/
+  --first-color: #1475b3;
+  --first-color-alt-1: #419ed9;
+  --first-color-alt-2: #2185c5;
+  --first-color-alt-3: #00568c;
+
+  --second-color: #e65f45;
+  --second-color-alt-1: #ff9f8c;
+  --second-color-alt-2: #ff7f66;
+  --second-color-alt-3: #cc4329;
+
+  --black-color: #242b33;
+  --black-color-alt-1: #595f66;
+  --black-color-alt-2: #3e454c;
+
+  --light-color: #fafeff;
+  --light-color-alt-1: #ecf0f1;
+  --light-color-alt-2: #bbbebf;
+
+  --title-color: var(--first-color-alt-3);
+  --text-color: var(--black-color-alt-2);
+  --text-color-light: var(--black-color-alt-1);
+
+  /********* Font and typography *********/
+  --body-font: "Work Sans", sans-serif;
+  --biggest-font-size: 1.75em;
+  --h1-font-size: 2.25em;
+  --h2-font-size: 1.6em;
+  --h3-font-size: 1.3em;
+  --normal-font-size: 0.938em;
+  --small-font-size: 0.813em;
+  --smaller-font-size: 0.75em;
+  --tiny-font-size: 0.625em;
+
+  /********* Font weight *********/
+  --font-medium: 500;
+  --font-semibold: 600;
+
+  /********* z index *********/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 2.5em;
+    --h1-font-size: 2.25em;
+    --h2-font-size: 1.5em;
+    --h3-font-size: 1.25em;
+    --h4-font-size: 1.125em;
+    --h5-font-size: 0.8em;
+    --normal-font-size: 1em;
+    --small-font-size: 0.875em;
+    --smaller-font-size: 0.813em;
+  }
+}
+
+/*************** BASE ***************/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*************** REUSABLE CSS CLASSES ***************/
+.container {
+  max-width: 980px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25em;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.section {
+  padding: 4.5em 0 1em;
+  margin-bottom: 4em;
+}
+
+.section__title,
+.section__subtitle {
+  text-align: left;
+}
+
+.section__title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  max-width: 20em;
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--normal-font-size);
+  font-weight: 300;
+  color: var(--text-color-light);
+  margin-bottom: 2.5em;
+  max-width: 30em;
+}
+
+.button {
+  padding: 1em;
+  border-radius: 0.31em;
+  color: #fff;
+  text-align: center;
+}
+
+.card {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.171);
+  padding: 1.87em;
+  border-radius: 0.31em;
+  transition: 0.37s;
+}
+
+.card__title {
+  font-size: var(--h3-font-size);
+  color: var(--first-color-alt-3);
+  font-weight: var(--font-medium);
+  margin-bottom: 1em;
+}
+
+.card__list-item + .card__list-item{
+  margin-top: .6em;
+}
+
+.card__footer {
+  margin-top: 1em;
+}
+
+
+.card:hover {
+  background-color: var(--light-color-alt-1);
+  padding: 2.8em;
+}
+
+/*************** HEADER & NAV ***************/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: var(--z-fixed);
+  /* height: 17em; */
+  height: var(--header-height);
+  overflow: hidden;
+  transition: .37s;
+}
+
+.scroll-header {
+  box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.137);
+}
+
+.nav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.nav__container {
+  width: 100%;
+  height: 100%;
+}
+
+.nav__logo {
+  color: var(--first-color-alt-3);
+  font-weight: var(--font-medium);
+  font-size: var(--h2-font-size);
+}
+
+.nav__list {
+  align-items: center;
+}
+
+.nav__item {
+  margin-bottom: .8em;
+}
+.nav__link {
+  color: var(--black-color);
+}
+
+.nav__link:hover {
+  color: var(--first-color-alt-2);
+}
+.nav__menu {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.nav__button {
+  background-color: var(--second-color);
+  padding: 8px 20px;
+  border-radius: 5px;
+  transition: 0.37s;
+}
+
+.nav__button:hover {
+  background-color: var(--second-color-alt-3);
+}
+
+/* Menu Mobile */
+.nav__brand {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.nav__toggle {
+  font-size: 2em;
+  color: var(--first-color);
+}
+.nav__toggle:hover {
+  cursor: pointer;
+}
+
+/*************** HOME ***************/
+#home {
+  height: 861px;
+  display: flex;
+  align-items: center;
+  background: url(./../images/bg.png) center;
+}
+
+.home__container {
+  width: 100%;
+}
+
+.home__data {
+  max-width: 40em;
+}
+
+.home__greeting {
+  margin-bottom: 1em;
+  line-height: 1.5em;
+  color: var(--black-color);
+  font-size: var(--h1-font-size);
+  font-weight: 300;
+}
+
+.home__info {
+  color: var(--black-color-alt-1);
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-medium);
+  line-height: 1.5em;
+  margin-bottom: 2em;
+}
+
+.home__buttons .button:nth-child(1) {
+  background-color: var(--second-color);
+}
+
+.home__buttons .button:nth-child(2) {
+  background-color: var(--first-color);
+}
+
+/*************** EXTRA ***************/
+.extra {
+    margin-top: -12em;
+}
+
+.extra__cards .card {
+  margin: 1em;
+  text-align: center;
+  background-color: #fff;
+}
+
+.extra__cards .card h2 {
+  margin-bottom: 1em;
+  color: var(--first-color-alt-3);
+}
+
+.extra__cards .card p {
+  color: var(--second-color);
+}
+
+/*************** ABOUT ***************/
+.about__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__img {
+  width: 280px;
+  margin-bottom: 1em;
+}
+
+.about__data .section__title {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.about__description {
+  font-size: var(--h4-font-size);
+  line-height: 1.5em;
+  font-weight: 300;
+  margin-bottom: 2em;
+}
+
+.about__social {
+  font-size: var(--h2-font-size);
+}
+
+.about__social-link {
+  color: var(--second-color);
+  margin-right: .5em;
+  transition: .37s;
+}
+.about__social-link:hover {
+  color: var(--first-color);
+}
+
+.about__button {
+  background-color: var(--first-color);
+}
+
+/*************** BANNER ***************/
+.banner {
+  background-color: var(--light-color-alt-1); 
+  height: 500px;
+}
+
+.banner__container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.banner__title {
+  font-size: var(--h1-font-size);
+  font-weight: 300;
+  margin-bottom: 1em;
+}
+
+.banner__data {
+  width: 40em;
+}
+
+.banner__data p {
+  margin-bottom: 1.5em;
+  font-size: var(--h3-font-size);
+  font-weight: 300;
+}
+
+.banner__button {
+  background-color: var(--first-color);
+  width: 120px;
+}
+
+/*************** COURSES ***************/
+.courses__cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-course {
+  width: 398;
+}
+
+.courses__button {
+  background-color: var(--second-color);
+  display: block;
+  transition: .37s;
+}
+
+.courses__button:hover {
+  background-color: var(--first-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+/*************** TESTIMONIALS ***************/
+.testimonial__cards {
+  display: flex;
+}
+
+.card-testimonial {
+  width: 24.375em;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 1em;
+}
+
+.card__header .testimonial__card-img {
+  width: 5em;
+  height: 5em;
+  border-radius: 5em;
+}
+
+.card__subtitle {
+  color: var(--second-color-alt-3);
+}
+
+/*************** QUESTIONS ***************/
+.question__card {
+  max-width: 50.75em;
+  background-color: var(--light-color-alt-1);
+  padding: 1.87em;
+  border-radius: .37em;
+  /* height: 65px;
+  overflow: hidden; */
+
+}
+
+.question__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.question__title {
+  font-size: var(--h3-font-size);
+  color: var(--first-color-alt-2);
+  font-weight: var(--font-medium);
+}
+
+.footer__container::before {
+  content: "";
+  display: block;
+  margin: 1em auto;
+  background-color: var(--light-color-alt-1);
+  height: 1px;
+  width: 100%;
+}
+
+.footer__container {
+  display: flex;
+  gap: 3em;
+  flex-wrap: wrap;
+}
+
+
+.footer__logo {
+  color: var(--first-color);
+}
+
+.footer__title {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--second-color-alt-3);
+  margin-bottom: 1em;
+  font-weight: var(--font-medium);
+}
+
+.footer__list li {
+  margin-bottom: .5em;
+}
+
+.footer__link {
+  color: var(--black-color-alt-2);
+  transition: .37s;
+}
+
+.footer__link:hover {
+  color: var(--first-color-alt-2);
+}
+
+.footer__map {
+  width: 100%;
+}
+
+/*************** BREAKPOINTS ***************/
+/* For small devices */
+@media screen and (max-width: 575px) {
+  .courses__cards {
+    justify-content: center;
+  }
+
+  .card + .card {
+    margin-top: 2em;
+    margin-left: 0em !important;
+  }
+
+  .testimonial__cards {
+    justify-content: center;
+  }
+
+  .courses__modal-img {
+    display: none;
+  }
+  
+  .courses__modal-container {
+    display: block !important;
+  }
+
+  .courses__modal {
+    overflow-y: scroll;
+  }
+  
+}
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .courses__cards {
+    justify-content: center;
+  }
+
+  .card + .card {
+    margin-top: 2em;
+    margin-left: 0em !important;
+  }
+
+  .testimonial__cards {
+    justify-content: center;
+  }
+}
+
+/*************** SCROLL BAR ***************/
+::-webkit-scrollbar {
+  width: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: hsl(var(--second-hue), 8%, 38%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--second-hue), 8%, 26%);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--second-hue), 8%, 20%);
+}
+
+/* For large devices */
+@media screen and (min-width: 992px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 6.5rem 0 1rem;
+  }
+
+  .extra {
+    margin-top: -15em;
+}
+
+  .about__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about__img {
+    width: 350px;
+  }
+
+  .about__data {
+    text-align: initial;
+  }
+
+  .about__description {
+    padding: 0 4rem 0 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .courses__cards {
+    justify-content: start;
+  }
+
+  .card + .card {
+    margin-top: 0em;
+    margin-left: 1em !important;
+  }
+
+  .testimonial__cards {
+    justify-content: start;
+  }
+}
+
+
+
+/* CURSOS */
+.page__title {
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  font-size: var(--h4-font-size);
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(./../images/Grupo\ 36.png) center var(--light-color-alt-1);
+  border-radius: 10px;
+  color: var(--second-color-alt-3);
+}
+
+
+/* Courses modal */
+.courses__modal {
+  position: fixed;
+  inset: 0;
+  padding: 2rem 1rem;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: .37s;
+  z-index: var(--z-modal);
+  background-color: #000000a4;
+  width: 100%;
+}
+
+.courses__modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 4.5rem 1.5rem 2.5rem;
+  border-radius: 1.5rem;
+  width: 100%;
+}
+
+.courses__modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--second-color);
+}
+
+.courses__modal-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4em;
+  align-items: center;
+}
+
+.courses__modal-title {
+  font-size: var(--h1-font-size);
+  font-weight: 300;
+  color: var(--first-color);
+  margin-bottom: 1em;
+}
+
+.courses__modal-title::after {
+  display: block;
+  content: "";
+  height: 1px;
+  width: 70px;
+  margin-top: .1em;
+  background-color: var(--second-color-alt-3);
+}
+
+.courses__modal-description {
+  font-size: var(--normal-font-size);
+  line-height: 1.5em;
+  font-weight: 300;
+  color: var(--black-color);
+  margin-bottom: 1em;
+}
+.courses__modal-description::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: var(--first-color-alt-1);
+  margin-top: 1em;
+}
+.courses__modal-subjects {
+  margin-bottom: 2em;
+}
+.courses__modal-item {
+  margin-bottom: .8em;
+}
+
+.courses__modal-button {
+  background-color: var(--first-color);
+  transition: .37s;
+}
+
+.courses__modal-button:hover {
+  background-color: var(--second-color);
+}
+
+/*Active modal*/
+.active-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* EVENTOS */
+.events__button {
+  width: 100%;
+  display: block;
+  background-color: var(--first-color);
+  transition: .37s;
+}
+
+.events__button:hover {
+  background-color: var(--second-color);
+}

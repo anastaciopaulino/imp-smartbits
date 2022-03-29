@@ -1,0 +1,207 @@
+{% extends "config/base.html" %}
+{% load static %}
+
+{% block context %}
+  <!--************** HOME **************-->
+  <section class="home section" id="home">
+    <div class="home__container container">
+      <div class="home__data">
+        <h1 class="home__greeting">
+          Seja bem-vindo ao Instituto Médio Politécnico SmartBits!
+        </h1>
+        <p class="home__info">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+          quibusdam error officia unde rerum sit facilis ut, voluptas pariatur
+          doloremque in ex corporis ipsum provident perspiciatis, et
+          voluptatum maiores!
+        </p>
+
+        <div class="home__buttons">
+          <a href="{% url 'courses:courses' %}" class="button button-courses">Ver cursos</a>
+          <a href="" class="button button-instations">
+            <i class="fa-solid fa-circle-play"></i>
+            Nossas instalações
+          </a>
+        </div>  
+      </div>
+    </div>
+  </section>
+
+  <!--************** EXTRA **************-->
+  <section class="extra section" id="extra">
+    <div class="extra__data container swiper">
+      <div class="extra__cards swiper-wrapper">
+        <div class="card swiper-slide">
+          <h2>+100</h2>
+          <p>Quantidade de alunos</p>
+        </div>
+        <div class="card swiper-slide">
+          <h2>+1</h2>
+          <p>Cursos</p>
+        </div>
+        <div class="card swiper-slide">
+          <h2>+10</h2>
+          <p>Salas capacitadas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--************** ABOUT **************-->
+  <section class="about section" id="about">
+    <div class="about__container container grid">
+      <div class="about__profile">
+        <img
+          src="{% static 'images/favicon.png' %}"
+          alt="Logotipo do SmartBits, circular, com cor azul."
+          title="I.M.P. SmartBits"
+          class="about__img"
+        />
+
+        <div class="about__social">
+          <a href="" class="about__social-link">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="" class="about__social-link">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="" class="about__social-link">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="about__data">
+        <h3 class="section__title">Sobre nós</h3>
+
+        <div class="about__intro">
+          <p class="about__description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Molestiae omnis necessitatibus fugiat amet repellendus beatae
+            quam atque. Temporibus dolore consequatur reprehenderit, commodi
+            repudiandae voluptatum saepe illum, recusandae quas, magni
+            dolorum.
+          </p>
+
+          <a href="" class="button about__button">Saber mais</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--************** BANNER **************-->
+  <section class="banner section" id="banner">
+    <div class="banner__container container grid">
+      <div class="banner__data">
+        <h1 class="banner__title">
+          Invista em se mesmo para preparar e garantir um futuro melhor!
+        </h1>
+
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+          inventore ut cumque possimus suscipit dolor quod sed esse.
+        </p>
+
+        <a href="" class="button banner__button">Ver cursos</a>
+      </div>
+    </div>
+  </section>
+
+  <!--************** COURSES **************-->
+  <section class="courses section" id="courses">
+    <div class="courses__container container grid">
+      <h3 class="section__title">
+        Melhores cursos com melhor qualidade, custo e benefícios
+      </h3>
+      <p class="section__subtitle">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, non
+        commodi. Quam perferendis quas culpa, velit aliquid repellendus!
+      </p>
+
+      <div class="courses__data">
+        <div class="courses__cards">
+          {% for course in courses %}
+          <div class="card card-course">
+            <h4 class="card__title">{{ course.name }}</h4>
+
+            
+            <ul class="card__list">
+              {% for subjects in course.subjects.values %}
+                <li class="card__list-item">{{ subjects.name }}</li>              
+              {% endfor %}
+            </ul>
+
+            <div class="card__footer">
+              <a href="" class="button courses__button">Ler mais</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--************** TESTIMONIALS **************-->
+  <section class="testimonial section" id="testimonial">
+    <div class="testimonial__container container grid">
+      <h3 class="section__title">
+        Faça já a sua inscrição e junta-se à mais de 100 alunos.
+      </h3>
+      <p class="section__subtitle">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, non
+        commodi. Quam perferendis quas culpa, velit aliquid repellendus!
+      </p>
+
+      <div class="testimonial__data">
+        <div class="testimonial__cards">
+          {% for testimonial in testimonials %}
+            <div class="card card-testimonial">
+              <div class="card__header">
+                <img
+                  src="{{ testimonial.photo.url }}"
+                  alt=""
+                  class="testimonial__card-img"
+                />
+
+                <div class="testimonial__card-info">
+                  <h5 class="card__title">{{ testimonial.name }}</h5>
+                  <span class="card__subtitle">- {{ testimonial.title }}</span>
+                </div>
+              </div>
+              <p class="card__body">
+                {{ testimonial.description }}
+              </p>
+            </div>          
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--************** QUESTIONS **************-->
+  <section class="questions section" id="questions">
+    <dev class="questions__container container grid">
+      <h3 class="section__title">
+        Estudantes perguntam: algumas questões frequentes.
+      </h3>
+      <p class="section__subtitle">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, non
+        commodi. Quam perferendis quas culpa, velit aliquid repellendus!
+      </p>
+
+      <div class="questions__data">
+        {% for question in questions %}
+        <div class="question__card">
+          <div class="question__header">
+            <h4 class="question__title">{{ question.question }}</h4>
+            <span>X</span>
+          </div>
+
+          <p class="question__body">
+            {{ question.response }}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </dev>
+  </section>
+{% endblock context %}

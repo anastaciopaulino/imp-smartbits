@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--************** SWIPER CSS **************-->
+    <link rel="stylesheet" href=" {% static 'css/swiper-bundle.min.css' %}" />
+
+    <!--************** CSS **************-->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <title>I.M.P. SmartBits</title>
+  </head>
+  <body>
+    <!--************** HEADER **************-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <div class="nav__container">
+          <div class="nav__brand">
+            <a href="{% url 'index' %}" class="nav__logo">I.M.P. SmartBits</a>
+
+            <span class="nav__toggle" id="nav__toggle">
+              <i class="fa-solid fa-bars"></i>
+            </span>
+          </div>
+
+          <div class="nav__menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="{% url 'index' %}" class="nav__link active-link">Inicio</a>
+              </li>
+              <li class="nav__item">
+                <a href="{% url 'courses:courses' %}" class="nav__link active-link">Cursos</a>
+              </li>
+              <li class="nav__item">
+                <a href="{% url 'events:events' %}" class="nav__link active-link">Eventos</a>
+              </li>
+              <li class="nav__item">
+                <a href="{% url 'gallery:gallery' %}" class="nav__link active-link">Galeria</a>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://api.whatsapp.com/send?phone=+244998885208&text=Mais informações!" class="button nav__button"> Fale conosco </a>
+        </div>
+      </nav>
+    </header>
+
+    <!--************** MAIN **************-->
+    <main class="main">
+      {% block context %}
+      {% endblock context %}
+    </main>
+
+    <!--************** Footer **************-->
+    <footer class="footer">
+      <div class="footer__container container grid">
+        <div class="">
+          <h1 class="footer__logo">I.M.P. SmartBits</h1>
+          <p class="footer__subtitle">
+            A sua melhor solução para a sua formação.
+          </p>
+        </div>
+
+        <div class="footer__suporte">
+          <h4 class="footer__title">Suporte</h4>
+          <ul class="footer__list">
+            <li><a href="" class="footer__link">Fale conosco</a></li>
+            <li><a href="" class="footer__link">Smartbits@info.com</a></li>
+            <li><a href="" class="footer__link">+244 996 669 201</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__social">
+          <h4 class="footer__title">Nossa rede social</h4>
+          <ul class="footer__list">
+            <li><a href="" class="footer__link">Facebook</a></li>
+            <li><a href="" class="footer__link">Instagram</a></li>
+            <li><a href="" class="footer__link">WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15766.369301616967!2d13.3474025!3d-8.9174379!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xac1b0da37d2f6b2!2sInstituto%20M%C3%A9dio%20Polit%C3%A9cnico%20SmartBits!5e0!3m2!1spt-BR!2sao!4v1647894433690!5m2!1spt-BR!2sao"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            class="footer__map"
+          ></iframe>
+        </div>
+      </div>
+    </footer>
+
+    <!--************** SWIPER JS **************-->
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+
+    <!--************** FONT AWESOME ICON **************-->
+    <script
+      src="https://kit.fontawesome.com/059483bf5a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--************** MAIN JS **************-->
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

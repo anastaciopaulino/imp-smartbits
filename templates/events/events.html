@@ -1,0 +1,31 @@
+{% extends "config/base.html" %}
+
+{% block context %}
+  <section class="section">
+    <div class="page__title container">
+      <h1>Nossos Eventos</h1>
+    </div>
+  </section>
+  <!--************** Eventos **************-->
+
+  <section class="section">
+    <div class="eventos__data container">
+      {% for event in events %}
+      <div class="card card-testimonial">
+        <div class="card__header">
+          <h3 class="card__title">{{ event.name }}</h3>
+        </div>
+        <p class="card__body">
+          {{ event.description }}
+        </p>
+
+        <div class="card__footer">
+          <a href="" class="button events__button">Ler mais</a>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </section>
+{% endblock context %}

@@ -1,0 +1,20 @@
+{% extends "config/base.html" %}
+
+{% block context %}
+  <section class="section">
+    <div class="page__title container">
+      <h1>Nossos Eventos</h1>
+    </div>
+  </section>
+  <!--************** Eventos **************-->
+
+  <section class="section">
+    <div class="gallery__data container">
+      {% for photo in photos %}
+      <img src="{{ photo.photo.url }}" class="gallery__photo" alt="" srcset="">
+      {% endfor %}
+
+    </div>
+
+  </section>
+{% endblock context %}
