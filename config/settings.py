@@ -96,6 +96,10 @@ DATABASES = {
     }
 }
 
+# To make GeoDjango work on Heroku
+GDAL_LIBRARY_PATH = config("GDAL_LIBRARY_PATH", default="")
+GEOS_LIBRARY_PATH = config("GEOS_LIBRARY_PATH", default="")
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
